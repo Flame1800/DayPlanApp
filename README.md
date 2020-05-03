@@ -22,7 +22,8 @@ Your app is ready to be deployed!
 
 ### `npm run fake-json`
 
-Runs the fake batabase for loading app resoures and rational work app.
+It's the fake batabase for loading app resoures and rational work app.
+run fake json with the application
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
