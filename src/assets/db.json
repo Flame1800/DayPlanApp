@@ -1,0 +1,35 @@
+{
+  "tasksDay": [
+    {
+      "state": "active",
+      "mode": "work",
+      "textWork": "чать",
+      "priceWork": "20",
+      "id": 1
+    },
+    {
+      "state": "active",
+      "mode": "work",
+      "textWork": "что дальше?",
+      "priceWork": "20",
+      "id": 2
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "username": "admin",
+      "name": "Admin",
+      "ballance": 0
+    },
+    {
+      "id": 2,
+      "username": "testUser",
+      "name": "UserTest",
+      "ballance": 0
+    }
+  ],
+  "currentUser": {
+    "id": 1
+  }
+}
