@@ -1,14 +1,14 @@
 {
-  "main.css": "/Flame1800/DayPlanApp.git/static/css/main.4f81f118.chunk.css",
-  "main.js": "/Flame1800/DayPlanApp.git/static/js/main.b74a2195.chunk.js",
-  "main.js.map": "/Flame1800/DayPlanApp.git/static/js/main.b74a2195.chunk.js.map",
-  "static/js/1.4750dab0.chunk.js": "/Flame1800/DayPlanApp.git/static/js/1.4750dab0.chunk.js",
-  "static/js/1.4750dab0.chunk.js.map": "/Flame1800/DayPlanApp.git/static/js/1.4750dab0.chunk.js.map",
-  "runtime~main.js": "/Flame1800/DayPlanApp.git/static/js/runtime~main.bdc1f1e8.js",
-  "runtime~main.js.map": "/Flame1800/DayPlanApp.git/static/js/runtime~main.bdc1f1e8.js.map",
-  "static/media/index.scss": "/Flame1800/DayPlanApp.git/static/media/clock.a9b56864.svg",
-  "static/css/main.4f81f118.chunk.css.map": "/Flame1800/DayPlanApp.git/static/css/main.4f81f118.chunk.css.map",
-  "index.html": "/Flame1800/DayPlanApp.git/index.html",
-  "precache-manifest.e76cdf200f74b0cf15d1ade88e9425a8.js": "/Flame1800/DayPlanApp.git/precache-manifest.e76cdf200f74b0cf15d1ade88e9425a8.js",
-  "service-worker.js": "/Flame1800/DayPlanApp.git/service-worker.js"
+  "main.css": "/day-plan-app/static/css/main.4686b7c2.chunk.css",
+  "main.js": "/day-plan-app/static/js/main.bb610ffb.chunk.js",
+  "main.js.map": "/day-plan-app/static/js/main.bb610ffb.chunk.js.map",
+  "static/js/1.4750dab0.chunk.js": "/day-plan-app/static/js/1.4750dab0.chunk.js",
+  "static/js/1.4750dab0.chunk.js.map": "/day-plan-app/static/js/1.4750dab0.chunk.js.map",
+  "runtime~main.js": "/day-plan-app/static/js/runtime~main.bcba43d1.js",
+  "runtime~main.js.map": "/day-plan-app/static/js/runtime~main.bcba43d1.js.map",
+  "static/media/index.scss": "/day-plan-app/static/media/bin.74de5e29.svg",
+  "static/css/main.4686b7c2.chunk.css.map": "/day-plan-app/static/css/main.4686b7c2.chunk.css.map",
+  "index.html": "/day-plan-app/index.html",
+  "precache-manifest.01a9bac36186a71a58e50bba2c40fea6.js": "/day-plan-app/precache-manifest.01a9bac36186a71a58e50bba2c40fea6.js",
+  "service-worker.js": "/day-plan-app/service-worker.js"
 }

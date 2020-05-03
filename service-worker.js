@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/Flame1800/DayPlanApp.git/precache-manifest.e76cdf200f74b0cf15d1ade88e9425a8.js"
+  "/day-plan-app/precache-manifest.01a9bac36186a71a58e50bba2c40fea6.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/Flame1800/DayPlanApp.git/index.html", {
+workbox.routing.registerNavigationRoute("/day-plan-app/index.html", {
   
   blacklist: [/^\/_/,/\/[^/]+\.[^/]+$/],
 });
