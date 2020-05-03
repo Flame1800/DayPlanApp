@@ -20,12 +20,12 @@ self.__precacheManifest = [
     "url": "/day-plan-app/static/media/tick.3d4eb88d.svg"
   },
   {
-    "revision": "a9b568643860d2f9d30c1bf1680cff8c",
-    "url": "/day-plan-app/static/media/clock.a9b56864.svg"
-  },
-  {
     "revision": "74de5e293431669b327099735fe2eaa3",
     "url": "/day-plan-app/static/media/bin.74de5e29.svg"
+  },
+  {
+    "revision": "a9b568643860d2f9d30c1bf1680cff8c",
+    "url": "/day-plan-app/static/media/clock.a9b56864.svg"
   },
   {
     "revision": "426e54da774b14b04e2f7c1a82a93058",
