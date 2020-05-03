@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/day-plan-app/precache-manifest.95f9345596f48a13c5cbb1e858aa2ddf.js"
+  "/day-plan-app/precache-manifest.b9b3ab23fdc56e5a8d05b9a164783b11.js"
 );
 
 workbox.clientsClaim();

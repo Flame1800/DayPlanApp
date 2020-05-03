@@ -28,7 +28,7 @@ self.__precacheManifest = [
     "url": "/day-plan-app/static/media/clock.a9b56864.svg"
   },
   {
-    "revision": "426e54da774b14b04e2f7c1a82a93058",
+    "revision": "dcb07f0f72971b0e9903237d16dfd7d0",
     "url": "/day-plan-app/index.html"
   }
 ];
