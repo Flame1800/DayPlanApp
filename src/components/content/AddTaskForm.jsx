@@ -5,6 +5,11 @@ import { reduxForm } from "redux-form";
 
 import * as actions from "../../actions/index.js";
 
+const mapStateToProps = (state) => {
+  const { user } = state;
+  return { user };
+};
+
 const actionCreators = {
   addTask: actions.addTask,
 };
@@ -12,7 +17,8 @@ const actionCreators = {
 class AddTaskForm extends Component {
   
   handleSubmit = (mode) => (values) => {
-    const task = {state: "active", mode, ...values };
+    const userId = this.props.user.id;
+    const task = { userId ,state: "active", mode, ...values };
     this.props.addTask(task);
     this.props.reset();
   };
@@ -54,5 +60,5 @@ class AddTaskForm extends Component {
   }
 }
 
-const ConnectedAddTaskForm = connect(null, actionCreators)(AddTaskForm);
+const ConnectedAddTaskForm = connect(mapStateToProps, actionCreators)(AddTaskForm);
 export default reduxForm({ form: "NewTask" })(ConnectedAddTaskForm);

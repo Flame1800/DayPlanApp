@@ -46,6 +46,11 @@ body {
   }
 }
 
+.empty-tasks-text {
+  margin-top: 140px;
+  font-size: 30px;
+}
+
 .navbar {
   height: 80px;
   width: 100%;
@@ -79,6 +84,15 @@ body {
 
   &__rigth {
     display: flex;
+    .logout-button {
+      padding: 10px;
+      background: rgb(68, 68, 68);
+      color: white;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
   }
 
   &__money {
@@ -88,15 +102,23 @@ body {
   }
 
   &__person {
-    display: flex;
-    margin-top: 17px;
+    text-align: center;
+    font-size: 18px;
     margin-right: 44px;
+
+    &__name {
+      margin-bottom: 8px;
+      margin-top: 20px;
+    }
+
+  
   }
 }
 
 .money-icon {
   width: 30px;
   height: 30px;
+  margin-right: 10px;
 }
 
 .person__photo {
@@ -191,6 +213,23 @@ body {
   font-size: 18px;
   cursor: pointer;
   background: rgb(226, 226, 226);
+}
+
+.task-block-completed {
+  display: flex;
+  align-items: center;
+}
+
+.task-reset-button {
+  margin-left: 8px;
+  padding: 5px;
+  cursor: pointer;
+  background-color: #ff4b4b;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
 }
 
 .task {
@@ -372,4 +411,131 @@ body {
   background-image: url("./assets/img/icons/clock.svg");
   width: 20px;
   height: 20px;
+}
+
+
+.landing {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+
+  .card {
+    width: 50%;
+    background: url('./assets/img/task-man.jpg') no-repeat;
+    background-size: cover;
+
+    &-title {
+      font-size: 96px;
+      text-align: center;
+      font-weight: 800;
+      margin-top: 80px;
+      color: rgb(231, 231, 231);
+    }
+
+    &-subtitle {
+      padding: 27px;
+      font-size: 36px;
+      text-align: center;
+      font-weight: 500;
+      color: white;
+      background: rgba(0, 0, 0, 0.397);
+    }
+
+    &-messages {
+      margin-left: 50px;
+      margin-right: 50px;
+      margin-top: 100px;
+    }
+
+    .right {
+      margin-left: 400px;
+    }
+
+    &-message {
+      width: 350px;
+      height: 100px;
+      border-radius: 20px;
+      background: #fff;
+      padding: 20px;
+      margin-bottom: 70px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      
+      .text {
+        font-weight: 300;
+        font-size: 21px;
+        width: 100%;
+      }
+      
+      .timer {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        
+      }
+
+      .time {
+        padding: 8px 12px;
+        font-size: medium;
+        font-size: 18px;
+        background: #C4C4C4;
+        display: inline-block;
+        border-radius: 20px;
+        margin-bottom: -20px;
+        margin-right: -26px;
+      }
+    }
+  }
+
+  .autorization-card {
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .password-error {
+      color: red;
+      margin-bottom: 10px;
+    }
+
+    .title {
+       font-size: 48px;
+       margin-bottom: 50px;
+    }
+    
+    .field {
+      width: 400px;
+      outline: none;
+      border: none;
+      border-bottom: 1px solid black;
+      margin: 30px;
+      font-size: 15px;
+    }
+
+    .button-confirm {
+      width: 230px;
+      border-radius: 20px;
+      margin-top: 35px;
+      margin-bottom: 30px;
+      background-color: #F9CA23;
+      padding: 16px 20px;
+      border: none;
+      font-size: 22px;
+      cursor: pointer;
+      outline: none;
+    }
+
+    .toggle-form {
+      margin-top: 20px;
+      cursor: pointer;
+    } 
+
+    .email-error {
+      color: red;
+      text-align: center;
+    }
+  }
 }

@@ -8,17 +8,18 @@ const mapStateToProps = (state) => {
   const {
     tasksDayFetchingState,
     tasksDay: { byId, allIds },
+    user
   } = state;
-  const tasks = allIds.map((id) => byId[id]);
-  return { tasks, tasksDayFetchingState };
+
+  const mappingTasks = allIds.map((id) => byId[id]);
+  const filteredTasks = mappingTasks.filter((task) => task.userId === user.id);
+  return { tasks: filteredTasks, tasksDayFetchingState, user };
 };
 
 const actionCreators = {
   removeTask: actions.removeTask,
   completeTask: actions.completeTask,
-  editTask: actions.editTask,
-  addMoney: actions.addMoneySuccess,
-  deleteMoney: actions.deleteMoneySuccess,
+  calculateMoney: actions.calculateMoney,
 };
 
 class TaskList extends Component {
@@ -27,16 +28,31 @@ class TaskList extends Component {
     removeTask({ id });
   };
 
-  completeTask = (task) => () => {
-    const { completeTask, addMoney, deleteMoney } = this.props;
+  resetTask = (task) => () => {
+    const { completeTask, calculateMoney, user } = this.props;
     completeTask({ task });
-    const price = task.priceWork || task.priceRelax;
 
+    const price = task.priceWork || task.priceRelax;
+    const props = {price, user};
     if (task.priceWork) {
-      addMoney({ price });
+      calculateMoney({...props, mode: "delete"});
     }
     if (task.priceRelax) {
-      deleteMoney({ price });
+      calculateMoney({...props, mode: "add"});
+    }
+  }
+
+  completeTask = (task) => (e) => {
+    const { completeTask, calculateMoney, user } = this.props;
+    completeTask({ task });
+
+    const price = task.priceWork || task.priceRelax;
+    const props = {price, user};
+    if (task.priceWork) {
+      calculateMoney({...props, mode: "add"});
+    }
+    if (task.priceRelax) {
+      calculateMoney({...props, mode: "delete"});
     }
   };
 
@@ -55,7 +71,7 @@ class TaskList extends Component {
     }
 
     if (tasks.length === 0) {
-      return null;
+      return <div className='empty-tasks-text'> У вас нет текущих задач </div>
     }
 
     const modedTasks = tasks.filter((task) => task.mode === mode);
@@ -63,7 +79,7 @@ class TaskList extends Component {
     return (
       <div className="tasks">
         {modedTasks.map((task) => {
-          const competedTask = task.state === "active" ? false : true;
+          const completedTask = task.state === "active" ? false : true;
           const priceClasses = cn({
             task__price: true,
             "price-work-theme": task.priceWork || false,
@@ -72,7 +88,7 @@ class TaskList extends Component {
 
           const taskClasses = cn({
             task: true,
-            "task-completed": competedTask,
+            "task-completed": completedTask,
           });
 
           return (
@@ -87,21 +103,24 @@ class TaskList extends Component {
                     className="icon delete-button"
                     onClick={this.handleRemoveTask(task.id)}
                   ></div>
-                  {!competedTask ? (
+                  {!completedTask ? (
                     <div
                       className="icon ready-button"
                       onClick={this.completeTask(task)}
                     ></div>
                   ) : (
-                    "Задание выполненно"
-                  )}
+                      <div className="task-block-completed">
+                        Задание выполненно
+                        <div className="task-reset-button" onClick={this.resetTask(task)}>Отмена</div>
+                      </div>
+                    )}
                 </div>
                 <div className="items-right">
                   {/* <div className="task__timer">
                     3ч. 56мин
                   <div className="icon time-button"></div> 
                   </div> */}
-                  {!competedTask && (
+                  {!completedTask && (
                     <div className={priceClasses}>
                       {task.priceWork || task.priceRelax || 0}$
                     </div>

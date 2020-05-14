@@ -6,18 +6,17 @@ import { Provider } from "react-redux";
 import App from "./App";
 import "./index.scss";
 import reducers from "./reducers/index.js";
-import { fetchTasks } from "./actions/index.js";
+import { getCurrentUser } from "./actions/index.js";
 
 const ext = window.__REDUX_DEVTOOLS_EXTENSION__;
 const devtoolMiddleware = ext && ext();
 
 const store = createStore(
   reducers,
-  compose(applyMiddleware(thunk))
+  compose(applyMiddleware(thunk), devtoolMiddleware)
 );
 
-
-store.dispatch(fetchTasks());
+store.dispatch(getCurrentUser());
 
 ReactDOM.render(
   <Provider store={store}>

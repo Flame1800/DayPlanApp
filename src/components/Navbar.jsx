@@ -1,19 +1,28 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import * as actions from "../actions/index.js";
 
 const mapStateToProps = (state) => {
-  const { ballance } = state;
-  return { ballance };
+  const { user } = state;
+  return { user };
 };
 
+const createActions = {
+  logoutUser: actions.logoutUser,
+}
+
 class Navbar extends Component {
+  handleLogout = () => {
+    this.props.logoutUser();
+  }
+
   render() {
-    const { ballance } = this.props;
+    const { user } = this.props;
 
     return (
       <div className="navbar">
         <div className="navbar__left">
-          <div className="logo">DayPlan</div>
+          <div className="logo">DayPlaner</div>
           <div className="navbar__data">
             27 Апреля, понедельник <br />
             <span className="data__time">18.38</span>
@@ -25,26 +34,27 @@ class Navbar extends Component {
           <div className="navbar__money">
             <img
               src="https://image.flaticon.com/icons/svg/138/138233.svg"
-              alt="0"
+              alt="moneys"
               className="money-icon"
-            />{" "}
-            {ballance}
+            />
+           {user.ballance}
           </div>
           <div className="navbar__person">
             <div className="navbar__person__name">
-              Василий <br /> Пупкин
+              Вы вошли как  <br/> {user.name}
             </div>
-            <img
+            {/* <img
               className="person__photo"
-              src="https://img4.goodfon.ru/original/2048x1367/2/4f/lolita-portret-prelest-gubki-lokony.jpg"
+              src=""
               alt="person"
-            ></img>
+            ></img> */}
           </div>
+          <div className="logout-button" onClick={this.handleLogout}>Выйти</div>
         </div>
       </div>
     );
   }
 }
 
-const ConnectedNavbar = connect(mapStateToProps, null)(Navbar);
+const ConnectedNavbar = connect(mapStateToProps, createActions)(Navbar);
 export default ConnectedNavbar;
