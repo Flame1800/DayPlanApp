@@ -20,19 +20,19 @@ self.__precacheManifest = [
     "url": "/Flame1800/DayPlanApp.git/static/js/runtime~main.bdc1f1e8.js"
   },
   {
-    "revision": "18b15795858eda0b5613",
-    "url": "/Flame1800/DayPlanApp.git/static/js/main.18b15795.chunk.js"
+    "revision": "3cddefcd6bfa2e72f5b3",
+    "url": "/Flame1800/DayPlanApp.git/static/js/main.3cddefcd.chunk.js"
   },
   {
     "revision": "cf26ac668fad6e0ba6f9",
     "url": "/Flame1800/DayPlanApp.git/static/js/1.cf26ac66.chunk.js"
   },
   {
-    "revision": "18b15795858eda0b5613",
+    "revision": "3cddefcd6bfa2e72f5b3",
     "url": "/Flame1800/DayPlanApp.git/static/css/main.b200b99f.chunk.css"
   },
   {
-    "revision": "d82412a3d113fba01917a63b7cdccac8",
+    "revision": "4b8eb296a13d0248be2d36fc43afb3bd",
     "url": "/Flame1800/DayPlanApp.git/index.html"
   }
 ];

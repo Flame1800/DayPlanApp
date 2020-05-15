@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/Flame1800/DayPlanApp.git/precache-manifest.7fc3693257aad35adc01d7c72a4fc0ae.js"
+  "/Flame1800/DayPlanApp.git/precache-manifest.ec5621fa8f8b4015a104fd5a1dbd23c1.js"
 );
 
 workbox.clientsClaim();
