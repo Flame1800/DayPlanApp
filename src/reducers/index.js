@@ -45,7 +45,7 @@ const tasksDay = handleActions(
 
       return {
         byId: _.keyBy(payload.tasks, "id"),
-        allIds: payload.tasks.map((t) => t.id),
+          allIds: payload.tasks.map((t) => tid),
       };
     },
     [actions.addTaskSuccess](state, { payload: { task } }) {
