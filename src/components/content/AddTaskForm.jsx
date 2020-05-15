@@ -17,7 +17,7 @@ const actionCreators = {
 class AddTaskForm extends Component {
   
   handleSubmit = (mode) => (values) => {
-    const userId = this.props.user.id;
+    const userId = this.props.user.uid;
     const task = { userId ,state: "active", mode, ...values };
     this.props.addTask(task);
     this.props.reset();

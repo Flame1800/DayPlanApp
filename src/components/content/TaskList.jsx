@@ -12,7 +12,7 @@ const mapStateToProps = (state) => {
   } = state;
 
   const mappingTasks = allIds.map((id) => byId[id]);
-  const filteredTasks = mappingTasks.filter((task) => task.userId === user.id);
+  const filteredTasks = mappingTasks.filter((task) => task.userId === user.uid);
   return { tasks: filteredTasks, tasksDayFetchingState, user };
 };
 
