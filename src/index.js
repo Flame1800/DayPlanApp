@@ -13,7 +13,7 @@ const devtoolMiddleware = ext && ext();
 
 const store = createStore(
   reducers,
-  compose(applyMiddleware(thunk), devtoolMiddleware)
+  compose(applyMiddleware(thunk))
 );
 
 store.dispatch(getCurrentUser());
