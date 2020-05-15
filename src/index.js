@@ -8,12 +8,12 @@ import "./index.scss";
 import reducers from "./reducers/index.js";
 import { getCurrentUser } from "./actions/index.js";
 
-//const ext = window.__REDUX_DEVTOOLS_EXTENSION__;
-//const devtoolMiddleware = ext && ext();
+const ext = window.__REDUX_DEVTOOLS_EXTENSION__;
+const devtoolMiddleware = ext && ext();
 
 const store = createStore(
   reducers,
-  compose(applyMiddleware(thunk))
+  compose(applyMiddleware(thunk), devtoolMiddleware)
 );
 
 store.dispatch(getCurrentUser());

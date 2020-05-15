@@ -28,7 +28,8 @@ export const getCurrentUser = () => async (dispatch) => {
       const users = userVal.val();
       Object.keys(users).forEach(key => {
         if (users[key].uid === user.uid) {
-          dispatch(setUserSuccess({ user: users[key] }));
+          dispatch(setUserSuccess({ user: {id: key,...users[key]} }));
+          dispatch(fetchTasks());
         } 
       });
     }
