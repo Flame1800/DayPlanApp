@@ -31,18 +31,19 @@ export default class ContentBar extends Component {
 
     return (
       <div className="content-bar">
+
         <div className="work-list task-list">
           <div className="list-header">Работа</div>
           {!workModalOpen ? (
             this.renderButton("work")
           ) : (
-            <AddTaskForm
-              mode="work"
-              modalToggler={this.modalToggler}
-              text="textWork"
-              price="priceWork"
-            />
-          )}
+              <AddTaskForm
+                mode="work"
+                modalToggler={this.modalToggler}
+                text="textWork"
+                price="priceWork"
+              />
+            )}
           <TaskList mode="work" />
         </div>
         <div className="relax-list task-list">
@@ -50,13 +51,13 @@ export default class ContentBar extends Component {
           {!relaxModalOpen ? (
             this.renderButton("relax")
           ) : (
-            <AddTaskForm
-              mode="relax"
-              modalToggler={this.modalToggler}
-              text="textRelax"
-              price="priceRelax"
-            />
-          )}
+              <AddTaskForm
+                mode="relax"
+                modalToggler={this.modalToggler}
+                text="textRelax"
+                price="priceRelax"
+              />
+            )}
           <TaskList mode="relax" />
         </div>
       </div>

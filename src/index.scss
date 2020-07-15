@@ -23,6 +23,13 @@ body {
   background: rgba(169, 169, 169, 0.4);
 }
 
+.spinner {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .todo {
   width: 100%;
   height: 100vh;
@@ -32,23 +39,37 @@ body {
     z-index: 199;
     min-width: 230px;
     margin-top: 80px;
-    box-shadow: 0px 0px 8px rgb(57, 57, 57);
+    box-shadow: -3px 0px 8px rgb(57, 57, 57);
 
     &_list_item {
-      font-size: 19px;
-      margin: 40px 20px;
+      font-size: 16px;
+      margin: 40px 30px 0px 0px;
       font-weight: 300;
       cursor: pointer;
+      padding-left: 15px;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      padding-right: 50px;
+      box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.25);
+      border-radius: 0px 20px 20px 0px;
+      color: #454545;
+      transition: all 0.5s;
+    }
+
+    &_list_item:hover {
+      box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.25);
     }
   }
   .active {
     color: #f24452;
+    box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.25);
   }
 }
 
 .empty-tasks-text {
   margin-top: 140px;
   font-size: 30px;
+  color: #606060;
 }
 
 .navbar {
@@ -59,6 +80,8 @@ body {
   z-index: 200;
   position: fixed;
   flex-wrap: wrap;
+  padding: 0;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
 
   &__left {
     display: flex;
@@ -86,8 +109,8 @@ body {
     display: flex;
     .logout-button {
       padding: 10px;
-      background: rgb(68, 68, 68);
-      color: white;
+      border-left: #FF4040 2px solid;
+      color: #454545;
       cursor: pointer;
       display: flex;
       justify-content: center;
@@ -98,7 +121,10 @@ body {
   &__money {
     font-size: 35px;
     margin-right: 86px;
-    margin-top: 25px;
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   &__person {
@@ -131,13 +157,14 @@ body {
 .logo {
   height: 80px;
   width: 230px;
-  background: linear-gradient(45deg, #f2c744, #f2b441, #f24452);
+  background: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: rgb(0, 0, 0);
-  font-weight: 800;
-  font-size: 40px;
+  color: #FF4040;
+  box-shadow: -3px -6px 8px #393939;
+  //font-weight: 800;
+  font-size: 31px;
 }
 
 .content-bar {
@@ -149,27 +176,26 @@ body {
   z-index: 0;
 
   .list-header {
-    background: #3b3b3b;
-    box-shadow: 0px 0px 8px rgb(57, 57, 57);
+    background: #fff;
+    box-shadow: 0px 0px 3px rgb(57, 57, 57);
     font-size: 25px;
-    color: white;
+    color: #606060;
     font-weight: 500;
-    padding: 10px;
+    padding: 3px;
     top: 0;
   }
   .list-header-white-theme {
-    color: rgb(0, 0, 0);
-    background: #f1f1f1;
+    color: #FF7777;
     z-index: 201;
   }
 }
 
 .work-list {
   width: 50%;
-  background: #f6f6f6;
   min-height: 90vh;
   overflow: auto;
-  border-right: solid 1px rgb(126, 126, 126);
+  border-right: solid 8px rgb(247, 247, 247);
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.178);
 
   &__add-task {
     margin-top: 30px;
@@ -189,7 +215,6 @@ body {
 
 .relax-list {
   width: 50%;
-  background: #f6f6f6;
   min-height: 90vh;
   overflow: auto;
 
@@ -211,6 +236,7 @@ body {
   border-radius: 20px;
   padding: 10px;
   font-size: 18px;
+  color: #606060;
   cursor: pointer;
   background: rgb(226, 226, 226);
 }
@@ -232,37 +258,57 @@ body {
   border-radius: 10px;
 }
 
+.task:hover .edit-button {
+  opacity: 1 !important;
+  transition: .2s ease-in-out;
+}
+
+.task:hover .delete-button {
+  opacity: 1 !important;
+  transition: .2s ease-in-out;
+}
+
 .task {
   min-height: 130px;
-  box-shadow: 0px 0px 8px rgb(57, 57, 57);
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
   background: #fff;
   margin: 60px 85px;
-  border-radius: 20px;
+  border-radius: 8px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   text-align: left;
 
-  &-completed {
-    background: rgb(209, 231, 149);
-  }
 
   &__down {
     display: flex;
     justify-content: space-between;
     width: 100%;
+    margin-bottom: 15px;
+    margin-left: 20px;
   }
 
   &__text {
     font-size: 19px;
-    padding: 20px;
+    padding-left: 20px;
+  }
+
+  .pomodors {
+    font-size: 22px;
+    font-weight: 500;
+    color: #606060;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin-left: 50px;
   }
 
   &__buttons {
     display: flex;
-    padding-left: 20px;
-    margin-bottom: 10px;
     opacity: 0.8;
+    justify-content: flex-end;
+    margin-right: 10px;
+    margin-top: 10px;
   }
 
   .items-right {
@@ -273,47 +319,38 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #f24452;
-    border-radius: 40px;
-    padding: 15px;
-    margin-bottom: -20px;
-    margin-right: -12px;
-    color: #fff;
     cursor: pointer;
     font-weight: 500;
+    font-size: 22px;
   }
 
-  &__price {
-    height: 53px;
-    width: 53px;
-    border-radius: 50%;
-    background-color: rgb(57, 57, 57);
-    color: #FFD949;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: -20px;
-    margin-right: -10px;
-    font-weight: 600;
-    cursor: default;
-  }
-
-  .price-relax-theme {
-    background-color: #FFD949;
-    color: rgb(0, 0, 0);
-  }
 
 }
 
 .add-task-modal {
-  width: 400px;
+  width: 80%;
   margin: 0 auto;
+  margin-bottom: 100px;
+
+  .tomato-icon {
+    background: url('./assets/img/icons/tomato\ 1.png') no-repeat;
+    background-size: 100% 100%;
+    height: 30px;
+    width: 30px;
+    margin-left: 20px;
+  }
+
+  .stat {
+    font-size: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
   &__input {
     height: 60px;
-    width: 400px;
+    width: 100%;
     margin-top: 20px;
-    border-radius: 20px;
     outline: none;
     background: #fff;
     font-family: Roboto;
@@ -321,13 +358,16 @@ body {
     border: none;
     box-shadow: inset 0px 0px 3px rgb(57, 57, 57);
     padding-left: 15px;
+    display: block;
   }
 
   &__container {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
     margin-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #F56A6A;
   }
 
   &__price {
@@ -347,22 +387,24 @@ body {
 
   &__set-time {
     padding: 3px 10px;
-    background: rgb(255, 207, 76);
-    border-radius: 20px;
-    color: rgb(8, 8, 8);
     margin-right: 10px;
     cursor: pointer;
   }
 
   &__acept {
-    background-image: url("./assets/img/icons/tick.svg");
-    width: 26px;
-    height: 26px;
-    margin-right: 5px;
+    margin-right: 15px;
     cursor: pointer;
     outline: none;
     border: none;
     opacity: 1;
+    padding: 10px 30px;
+    background: #FF5F5F;
+    color: #fff;
+    transition: 0.3s ease-in-out;
+  }
+
+  .btns {
+    display: flex;
   }
 
   &__acept:hover {
@@ -370,23 +412,34 @@ body {
   }
 
   &__reset {
-    background-image: url("https://image.flaticon.com/icons/svg/149/149690.svg");
-    width: 25px;
-    height: 25px;
     opacity: 0.8;
     cursor: pointer;
+    padding: 10px 20px;
+    border: 2px solid #FF5F5F ;
   }
 
   &__reset:hover {
     opacity: 0.5;
   }
+
+
+  .tag-task {
+    text-align: left;
+    margin-top: 15px;
+
+    .add-tag {
+      font-size: 25;
+      color: #606060;
+    }
+  }
 }
 
 .icon {
-  width: 17px;
-  height: 17px;
+  width: 14px;
+  height: 14px;
   margin: 0px 5px;
   cursor: pointer;
+  background-size: 100% 100%;
 }
 
 .icon:hover {
@@ -395,16 +448,19 @@ body {
 
 .edit-button {
   background-image: url("https://image.flaticon.com/icons/svg/565/565722.svg");
+  opacity: 0;
+  transition: .2s ease-in-out;
 }
 
 .delete-button {
-  background-image: url("./assets/img/icons/bin.svg");
+  background-image: url("https://image.flaticon.com/icons/svg/748/748122.svg");
+  opacity: 0;
+  transition: .2s ease-in-out;
 }
 
 .ready-button {
-  background-image: url("https://image.flaticon.com/icons/svg/845/845646.svg");
-  width: 20px;
-  height: 20px;
+  background-image: url("https://image.flaticon.com/icons/svg/860/860768.svg");
+  margin-left: 10px;
 }
 
 .time-button {
@@ -413,6 +469,21 @@ body {
   height: 20px;
 }
 
+.pomodoro-icon {
+  background-image: url('./assets/img/icons/tomato-active.png');
+  height: 22px;
+  width: 22px;
+  margin-left: 10px;
+  background-size: 100% 100%;
+}
+
+.pomodoro-icon-main {
+  background: url('./assets/img/icons/tomato-active.png');
+  width: 30px;
+  height: 30px;
+  background-size: 100% 100%;
+  margin-left: 10px;
+}
 
 .landing {
   display: flex;
@@ -520,8 +591,9 @@ body {
       border-radius: 20px;
       margin-top: 35px;
       margin-bottom: 30px;
-      background-color: #F9CA23;
+      background-color: #FF7777;
       padding: 16px 20px;
+      color: #fff;
       border: none;
       font-size: 22px;
       cursor: pointer;
@@ -539,3 +611,115 @@ body {
     }
   }
 }
+
+
+.modal-curr-task {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 400;
+  text-align: center;
+
+  .content {
+    background: #fff;
+    border-radius: 21px;
+    width: 700px;
+    height: 600px;
+    padding-top: 30px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #3E3E3E;
+  }
+
+  .title {
+    font-size: 36px;
+    font-weight: 500;
+  }
+
+  .info {
+    font-size: 25px;
+   
+  }
+
+  .inf-span {
+    color: #FF7777;
+  }
+
+  .time {
+    font-size: 86px;
+    margin-top: 35px;
+    
+  }
+
+  .breakout-bg {
+    background: #d2f6ff  !important;
+  }
+
+  .time-container {
+    margin-bottom: 55px;
+  }
+
+  .pomodoro-modal {
+    width: 30px;
+    height: 35px;
+    margin: 0 10px;
+    margin-bottom: 50px;
+  }
+
+  .btn-stop {
+    font-size: 32px;
+    color: #FF5656;
+    border: solid 2px #FF5656;
+    padding: 7px 50px;
+    margin-bottom: 30px;
+    cursor: pointer;
+    transition: .3s ease-in-out;
+  }
+
+  .btn-stop:hover {
+    background: #ff5656;
+    color: white;
+  }
+
+  .break-out-text {
+    color: #0b6e8c;
+    font-weight: 600;
+    font-size: 24px;
+  }
+
+  .btn-start {
+    font-size: 32px;
+    color: #fff;
+    border: solid 2px black;
+    color: black;
+    padding: 7px 50px;
+    margin-bottom: 30px;
+    cursor: pointer;
+    transition: .3s ease-in-out;
+    margin-right: 20px;
+  }
+
+  .btn-start:hover {
+    background: rgb(0, 0, 0);
+    color: white;
+  }
+
+  .pomodors-info {
+    display: flex;
+    font-size: 25px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .btns {
+    display: flex;
+  }
+}
+

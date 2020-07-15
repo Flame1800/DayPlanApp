@@ -2,6 +2,10 @@ import { createAction } from "redux-actions";
 import fb from '../config/firebase.js';
 
 
+export const startTask = createAction("START_TASK");
+export const stopTask = createAction("STOP_TASK");
+export const passPomodor = createAction("PASS_POMODOR");
+
 export const fetchTasksRequest = createAction("TASKS_FETCH_REQUEST");
 export const fetchTasksSuccess = createAction("TASKS_FETCH_SUCCESS");
 export const fetchTasksFailure = createAction("TASKS_FETCH_FAILURE");
@@ -22,18 +26,27 @@ export const addTaskSuccess = createAction("TASK_ADD_SUCCESS");
 export const calculateMoneySuccess = createAction("CALCULATE_MONEY_SUCCSESS");
 
 export const getCurrentUser = () => async (dispatch) => {
-  await fb.auth().onAuthStateChanged(async (user) => {
-    if (user) {
-      const userVal = await fb.database().ref('users').once('value');
-      const users = userVal.val();
-      Object.keys(users).forEach(key => {
-        if (users[key].uid === user.uid) {
-          dispatch(setUserSuccess({ user: {id: key,...users[key]} }));
-          dispatch(fetchTasks());
-        } 
-      });
-    }
-  })
+  dispatch(setUserRequest());
+  try {
+    await fb.auth().onAuthStateChanged(async (user) => {
+      if (user) {
+        const userVal = await fb.database().ref('users').once('value');
+        const users = userVal.val();
+        Object.keys(users).forEach(key => {
+          if (users[key].uid === user.uid) {
+            dispatch(setUserSuccess({ user: {id: key,...users[key]} }));
+            dispatch(fetchTasks());
+          } 
+        });
+      } else {
+        dispatch(setUserEmptyState());
+      }
+    })
+  }
+  catch {
+    dispatch(setUserFailure());
+  }
+
 }
 
 export const calculateMoney = ({ price, user, mode }) => async (dispatch) => {

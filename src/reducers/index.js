@@ -74,6 +74,24 @@ const tasksDay = handleActions(
   { byId: {}, allIds: [] }
 );
 
+
+const currentTask = handleActions(
+  {
+    [actions.startTask](state, { payload: { task } }) {
+      return task;
+    },
+    [actions.stopTask]() {
+      return null;
+    },
+    [actions.passPomodor](state, { payload }) {
+      let newPomodors = state.pomodors - 1;
+      state.pomodors = newPomodors;
+      return state;
+    },
+  },
+  null
+)
+
 const user = handleActions(
   {
     [actions.setUserSuccess](state, { payload: { user } }) {
@@ -90,6 +108,7 @@ export default combineReducers({
   tasksDayFetchingState,
   setUserState,
   tasksDay,
+  currentTask,
   user,
   form: formReducer,
 });

@@ -20,6 +20,7 @@ const actionCreators = {
   removeTask: actions.removeTask,
   completeTask: actions.completeTask,
   calculateMoney: actions.calculateMoney,
+  startTask: actions.startTask,
 };
 
 class TaskList extends Component {
@@ -33,28 +34,36 @@ class TaskList extends Component {
     completeTask({ task });
 
     const price = task.priceWork || task.priceRelax;
-    const props = {price, user};
+    const props = { price, user };
     if (task.priceWork) {
-      calculateMoney({...props, mode: "delete"});
+      calculateMoney({ ...props, mode: "delete" });
     }
     if (task.priceRelax) {
-      calculateMoney({...props, mode: "add"});
+      calculateMoney({ ...props, mode: "add" });
     }
   }
 
-  completeTask = (task) => (e) => {
-    const { completeTask, calculateMoney, user } = this.props;
-    completeTask({ task });
+  // completeTask = (task) => (e) => {
+  //   const { completeTask, calculateMoney, user } = this.props;
+  //   completeTask({ task });
+  //   let mode = '';
 
-    const price = task.priceWork || task.priceRelax;
-    const props = {price, user};
-    if (task.priceWork) {
-      calculateMoney({...props, mode: "add"});
-    }
-    if (task.priceRelax) {
-      calculateMoney({...props, mode: "delete"});
-    }
+  //   switch (task.mode) {
+  //     case 'work': mode = 'add'
+  //       break;
+  //     case 'relax': mode = 'delete'
+  //       break;
+  //     default: 
+  //   }
+
+  //   calculateMoney({ price: task.pomodors, user, mode: mode });
+  // };
+
+
+  startTask = (task) => (e) => {
+    this.props.startTask({ task });
   };
+
 
   render() {
     const { mode, tasks, tasksDayFetchingState } = this.props;
@@ -78,13 +87,9 @@ class TaskList extends Component {
 
     return (
       <div className="tasks">
+
         {modedTasks.map((task) => {
-          const completedTask = task.state === "active" ? false : true;
-          const priceClasses = cn({
-            task__price: true,
-            "price-work-theme": task.priceWork || false,
-            "price-relax-theme": task.priceRelax || false,
-          });
+          const completedTask = task.state === "active" ? false : true
 
           const taskClasses = cn({
             task: true,
@@ -93,38 +98,35 @@ class TaskList extends Component {
 
           return (
             <div className={taskClasses} key={task.id}>
-              <div className="task__text">
-                {task.textWork || task.textRelax}
-              </div>
-              <div className="task__down">
+              <div className="task__up">
                 <div className="task__buttons">
-                  {/* <div className="icon edit-button"></div> */}
+                  <div className="icon edit-button"></div>
                   <div
                     className="icon delete-button"
                     onClick={this.handleRemoveTask(task.id)}
                   ></div>
-                  {!completedTask ? (
+                </div>
+                <div className="items-up">
+                  <div className="task__text">
+                    {task.textWork || task.textRelax}
+                  </div>
+                </div>
+
+              </div>
+
+              <div className="task__down">
+                <div className="items-right">
+                  <div className="task__timer">
+                    {task.time}
+
                     <div
                       className="icon ready-button"
-                      onClick={this.completeTask(task)}
+                      onClick={this.startTask(task)}
                     ></div>
-                  ) : (
-                      <div className="task-block-completed">
-                        Задание выполненно
-                        <div className="task-reset-button" onClick={this.resetTask(task)}>Отмена</div>
-                      </div>
-                    )}
-                </div>
-                <div className="items-right">
-                  {/* <div className="task__timer">
-                    3ч. 56мин
-                  <div className="icon time-button"></div> 
-                  </div> */}
-                  {!completedTask && (
-                    <div className={priceClasses}>
-                      {task.priceWork || task.priceRelax || 0}$
-                    </div>
-                  )}
+                  </div>
+                  <div className="pomodors">
+                    {task.pomodors} <div className='pomodoro-icon'></div>
+                  </div>
                 </div>
               </div>
             </div>

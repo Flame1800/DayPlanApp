@@ -22,32 +22,27 @@ class Navbar extends Component {
     return (
       <div className="navbar">
         <div className="navbar__left">
-          <div className="logo">DayPlaner</div>
+          <div className="logo">PomodoroDay</div>
           <div className="navbar__data">
-            27 Апреля, понедельник <br />
-            <span className="data__time">18.38</span>
+            28 Июня, вс <br />
+            <span className="data__time">15.49</span>
           </div>
-          <div className="navbar__mode-button">классический режим</div>
         </div>
 
         <div className="navbar__rigth">
           <div className="navbar__money">
-            <img
-              src="https://image.flaticon.com/icons/svg/138/138233.svg"
+          {user.ballance}
+            <div
               alt="moneys"
-              className="money-icon"
-            />
-           {user.ballance}
+              className="pomodoro-icon-main"
+            ></div>
+           
           </div>
           <div className="navbar__person">
             <div className="navbar__person__name">
-              Вы вошли как  <br/> {user.name}
+            {user.name} <br/> 21 день
             </div>
-            {/* <img
-              className="person__photo"
-              src=""
-              alt="person"
-            ></img> */}
+
           </div>
           <div className="logout-button" onClick={this.handleLogout}>Выйти</div>
         </div>
