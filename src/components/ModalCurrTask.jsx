@@ -17,7 +17,7 @@ class ModalCurrTask extends Component {
         super(props);
         this.state = {
             timeLeft: {
-                min: 0,
+                min: 25,
                 sec: `00`,
             },
             breakOutTimer: false,
