@@ -4,7 +4,7 @@
   "private": true,
   "homepage": "https://github.com/Flame1800/DayPlanApp.git",
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "classnames": "^2.2.6",
     "firebase": "^7.14.3",
     "gh-pages": "^2.2.0",
